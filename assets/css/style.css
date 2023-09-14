@@ -167,13 +167,15 @@
     color: gray;
 }
 .message{
-    width: 70%;
-    margin-left: 4rem;
-    margin-right: 2rem;
+    width: 40%;
+    /* margin-left: 4rem;
+    margin-right: 2rem; */
     background-color: var(--bz-app-success);
     padding: 0.6rem 1rem;
     border-radius: 10px;
     position: relative;
+    margin-right: 1rem;
+    margin-top: 1rem;
 }
 .orario{
     position: absolute;
@@ -189,11 +191,19 @@
     font-size: small;
 }
 .messageUt{
-    width: 70%;
-    margin-left: 2rem;
-    margin-top: 10rem;
+    width: 40%;
+    /* margin-left: 2rem;
+    margin-top: 10rem; */
     background-color: whitesmoke;
     padding: 0.6rem 1rem;
     border-radius: 10px;
     position: relative;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+.flex-end{
+    justify-content: flex-end;
+}
+.row{
+    height: 50px;
 }
