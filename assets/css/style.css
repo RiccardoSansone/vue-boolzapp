@@ -147,3 +147,19 @@
     height: calc(100% - 120px);
     background-color: paleturquoise;
 }
+.p-1{
+    padding: 1rem;
+}
+.mx{
+    width: 90%;
+    padding: 0.5rem 0;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+.ic{
+    width: 5%;
+}
+.ic i{
+    color: gray;
+}
