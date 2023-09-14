@@ -168,8 +168,6 @@
 }
 .message{
     width: 40%;
-    /* margin-left: 4rem;
-    margin-right: 2rem; */
     background-color: var(--bz-app-success);
     padding: 0.6rem 1rem;
     border-radius: 10px;
@@ -192,8 +190,6 @@
 }
 .messageUt{
     width: 40%;
-    /* margin-left: 2rem;
-    margin-top: 10rem; */
     background-color: whitesmoke;
     padding: 0.6rem 1rem;
     border-radius: 10px;
