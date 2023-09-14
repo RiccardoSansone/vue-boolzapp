@@ -163,3 +163,34 @@
 .ic i{
     color: gray;
 }
+.message{
+    width: 70%;
+    margin-left: 4rem;
+    margin-right: 2rem;
+    background-color: var(--bz-app-success);
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    position: relative;
+}
+.orario{
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+    font-size: xx-small;
+    color: gray;
+}
+.m-top-3{
+    margin-top: 3rem;
+}
+.smaller{
+    font-size: small;
+}
+.messageUt{
+    width: 70%;
+    margin-left: 2rem;
+    margin-top: 10rem;
+    background-color: whitesmoke;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    position: relative;
+}
