@@ -66,14 +66,14 @@
                 <div class="users">
 
                     <!-- riga utente -->
-                    <div class="ut contact d-flex align-center gap-1 pos-relative">
+                    <div v-for="(contact,index) in contacts" class="ut contact d-flex align-center gap-1 pos-relative">
                         <!-- container img -->
                         <div class="img-circle d-flex align-center justify-center">
-                            <img :src="contacts[0].avatar" alt="">
+                            <img :src="contacts[index].avatar" alt="">
                         </div>
                         <!-- container info -->
                         <div class="d-flexCol">
-                            <h6>Michele</h6>
+                            <h6>{{contact.name}}</h6>
                             <small class="last-message">Ultimo messaggio inviato</small>
                         </div>
                         <!-- time -->
@@ -99,7 +99,7 @@
                     <div class="d-flex gap-1">
                         <!-- container img -->
                         <div class="img-circle">
-                            <img src="" alt="">
+                            <img :src="contacts[0].avatar" alt="">
                         </div>
                         <!-- container nome e accesso -->
                         <div class="d-flexCol justify-center">
