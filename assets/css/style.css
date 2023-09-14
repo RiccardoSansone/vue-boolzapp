@@ -14,6 +14,9 @@
     --bz-app-white: #FFFFFF;
     --bz-app-focus: #8EDAFC;
 }
+.bg-grey{
+    background-color: gray;
+}
 .container{
     width: 80%;
     margin: auto;
@@ -22,14 +25,17 @@
     margin-top: 2rem;
     display: flex;
 }
-.col-4, .col-8{
+.col-4, .col-6, .col-8{
     height: 100%;
-    border: 1px solid black;
+    border: 0.3px solid lightgray;
     display: flex;
     flex-direction: column;
 }
 .col-4{
     width: calc(100% / 12 * 4);
+}
+.col-6{
+    width: calc(100% / 12 * 6);
 }
 .col-8{
     width: calc(100% / 12 * 8);
@@ -59,7 +65,7 @@
     color: grey;
 }
 .my-account{
-    background-color: var(--bz-app-principal);
+    background-color: whitesmoke;
 }
 .notifica{
     background-color: var(--bz-app-focus);
@@ -121,4 +127,23 @@
 }
 .ut:hover{
     background-color: whitesmoke;
+}
+.ut, .users{
+    background-color: white;
+}
+.users{
+    height: 100%;
+}
+.bold{
+    font-weight: 400;
+}
+.icone{
+    padding-right: 1rem;
+}
+.icone i{
+    color: grey;
+}
+.whats{
+    height: calc(100% - 120px);
+    background-color: paleturquoise;
 }

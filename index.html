@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Boolzap</title>
+    <title>Boolzapp</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;500;700&family=PT+Sans:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-grey">
     
     <div id="app">
         <!-- container generale -->
@@ -27,7 +27,7 @@
                             <img src="" alt="">
                         </div>
                         <!-- noome -->
-                        <small>Sofia</small>
+                        <small class="bold">Sofia</small>
                     </div>
 
                     <!-- menu di destra -->
@@ -61,31 +61,79 @@
                 </div>
                 <!-- /////////////////////////////////////////////////////// -->
 
-                
-                <!-- quarta riga -->
-                <div class="ut contact d-flex align-center gap-1 pos-relative">
-                    <!-- container img -->
-                    <div class="img-circle d-flex align-center justify-center">
-                        <img src="" alt="">
-                    </div>
-                    <!-- container info -->
-                    <div class="d-flexCol">
-                        <h6>Michele</h6>
-                        <small class="last-message">Ultimo messaggio inviato</small>
-                    </div>
-                    <small class="time">12:00</small>
-                </div>
-                <!-- /////////////////////////////////////////////////////// -->
 
+                <!-- container utenti -->
+                <div class="users">
+
+                    <!-- riga utente -->
+                    <div class="ut contact d-flex align-center gap-1 pos-relative">
+                        <!-- container img -->
+                        <div class="img-circle d-flex align-center justify-center">
+                            <img src="" alt="">
+                        </div>
+                        <!-- container info -->
+                        <div class="d-flexCol">
+                            <h6>Michele</h6>
+                            <small class="last-message">Ultimo messaggio inviato</small>
+                        </div>
+                        <!-- time -->
+                        <small class="time">12:00</small>
+                    </div>
+                    <!-- /////////////////////////////////////////////////////// -->
+
+                </div>
+                <!-- /container utenti -->
             </div>
             <!-- /colonna sinistra -->
                 <!-- /////////////////////////////////////////////////////// -->
 
 
 
-            <!-- colonna destra -->
-            <div class="col-8"></div>
 
+
+            <!-- colonna destra -->
+            <div class="col-8">
+                <!-- container per la riga -->
+                <div class="my-account d-flex justify-between">
+                    <!-- container info left-->
+                    <div class="d-flex gap-1">
+                        <!-- container img -->
+                        <div class="img-circle">
+                            <img src="" alt="">
+                        </div>
+                        <!-- container nome e accesso -->
+                        <div class="d-flexCol justify-center">
+                            <small class="bold">Michele</small>
+                            <small class="last-message">Ultimo accesso oggi alle 12:00</small>
+                        </div>
+                    </div>
+                    
+                    <!-- container icon -->
+                    <div class="icone d-flex gap-1 align-center">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+
+                </div>
+                <!-- /////////////////////////////////////////////////////// -->
+
+
+                <!-- big container messages -->
+                <div class="whats d-flex">
+                    <!-- container's for single message -->
+                    <div class="col-6"></div>
+                    <!-- container's for single message -->
+                    <div class="col-6"></div>
+                </div>
+                <!-- /////////////////////////////////////////////////////// -->
+
+
+                <!-- container for bottom row -->
+                <div class="my-account"></div>
+
+            </div>
+            <!-- /colonna destra -->
 
 
 
