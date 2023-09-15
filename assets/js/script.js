@@ -1,8 +1,26 @@
 // Iniziamo a lavorare alla nostra replica della nota app di messaggistica. L'esercitazione sará divisa in piú giornate, oggi iniziamo a lavorare alla prima milestone che vi
 // riporto di seguito:
+
 // Milestone 1
 // Replica della grafica con la possibilità di avere messaggi scritti dall'utente (verdi) e dall'interlocutore (bianco) assegnando due classi CSS diverse
 // Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
+
+// Milestone 2
+// ● Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i
+// messaggi relativi al contatto attivo all’interno del pannello della conversazione
+// ● Click sul contatto mostra la conversazione del contatto cliccato
+
+// Milestone 3
+// ● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
+// “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+// ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
+// un “ok” come risposta, che apparirà dopo 1 secondo
+
+// Milestone 4
+// ● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
+// contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
+// “mar” rimangono solo Marco e Martina)
+
 
 
 const { createApp } = Vue
@@ -10,6 +28,8 @@ createApp({
 
     data() {
         return {
+            messToSend: '', //appoggio per salvare il valore inserito in input
+            activeChat: 0, //appoggio per sapere a quale oggetto mi sto riferendo nello specifico
             contacts: [
                 {
                     name: 'Michele',
@@ -113,7 +133,7 @@ createApp({
                 },
                 {
                     name: 'Claudia',
-                    avatar: './assets/img/avatar_5.jpg',
+                    avatar: './assets/img/avatar_6.jpg',
                     visible: true,
                     messages: [
                         {
@@ -176,7 +196,30 @@ createApp({
         }
     },
     methods: {
+        changeChat(index){ //metodo da richiamre per cambiare chat al click sulla chat desiderata  
+            this.activeChat = index
+        },
+        sendMessage(){ //metodo da richiamare per inviare il messaggio
+            let date = new Date() //salvo in una varibaile il valore della nuova data (in seguito mi servirá per formattare la data)
+            
+            this.contacts[this.activeChat].messages.push({ //pusho all'interno dell'array messages un nuovo oggetto conforme agli altri ma con valori diversi e diinamici usando come riferimento l'indice dell'array contacts 
+                date: date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),//data formattata
+                message: this.messToSend,//contenuto salvato in input
+                status: 'sent'//per attribbuirgli le adeguate classi css
+            })
 
+            const myTimeout = setTimeout(()=>{ //timing function per creare un oggetto che verrá pushato dopo un secondo 
+                let date = new Date()
+                this.contacts[this.activeChat].messages.push({
+                    date: date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),
+                    message: 'ok',//contenuto predefinito
+                    status: 'received'//per attribbuirgli le adeguate classi css
+                })
+                clearTimeout(myTimeout); //interrompe l'esecuzione
+            }, 1000);
+
+            this.messToSend = ''//pulisce alla fine il contenuto input
+        }
     }
 
 }).mount('#app')

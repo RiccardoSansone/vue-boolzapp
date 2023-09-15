@@ -66,7 +66,7 @@
                 <div class="users">
 
                     <!-- riga utente -->
-                    <div v-for="(contact,index) in contacts" class="ut contact d-flex align-center gap-1 pos-relative">
+                    <div @click="changeChat(index)" v-for="(contact,index) in contacts" class="ut contact d-flex align-center gap-1 pos-relative">
                         <!-- container img -->
                         <div class="img-circle d-flex align-center justify-center">
                             <img :src="contacts[index].avatar" alt="">
@@ -99,11 +99,11 @@
                     <div class="d-flex gap-1">
                         <!-- container img -->
                         <div class="img-circle">
-                            <img :src="contacts[0].avatar" alt="">
+                            <img :src="contacts[activeChat].avatar" alt="">
                         </div>
                         <!-- container nome e accesso -->
                         <div class="d-flexCol justify-center">
-                            <small class="bold">Michele</small>
+                            <small class="bold">{{contacts[activeChat].name}}</small>
                             <small class="last-message">Ultimo accesso oggi alle 12:00</small>
                         </div>
                     </div>
@@ -121,28 +121,22 @@
 
                 <!-- big container messages -->
                 <div class="whats">
-                    <!-- message single  -->
-                    <div class="d-flex flex-end m-top-3">
-                        <div class="message row">
-                            <small class="smaller">Hai portato a spasso il cane?</small>
-                            <small class="orario">15:30</small>
+                    <div v-for="(message, index) in contacts[activeChat].messages">
+                        <div v-if="message.status == 'sent'" class="d-flex flex-end">
+                            <div class="message row">
+                                <small class="smaller">{{message.message}}</small>
+                                <small class="orario">{{message.date}}</small>
+                            </div>
                         </div>
-                    </div>
-                    <!-- message single  -->
-                    <div class="d-flex flex-end">
-                        <div class="message row">
-                            <small class="smaller">Ricordati di stendere i panni</small>
-                            <small class="orario">15:30</small>
-                        </div>
-                    </div>
 
-                    <!-- message single for ut -->
-                    <div class="d-flex">
-                        <div class="messageUt row">
-                            <small class="smaller">Tutto fatto!</small>
-                            <small class="orario">16:15</small>
+                        <div v-else class="d-flex">
+                            <div class="messageUt row">
+                                <small class="smaller">{{message.message}}</small>
+                                <small class="orario">{{message.date}}</small>
+                            </div>
                         </div>
                     </div>
+                    <!-- message single  -->
 
                 </div>
                 <!-- /////////////////////////////////////////////////////// -->
@@ -154,8 +148,8 @@
                     <div class="ic d-flex align-center justify-center">
                         <i class="fa-regular fa-face-smile"></i>
                     </div>
-                    <input class="mx" type="text" placeholder="Scrivi un messaggio">
-                    <div class="ic d-flex align-center justify-center">
+                    <input v-on:keyup.enter="sendMessage" v-model="messToSend" class="mx" type="text" placeholder="Scrivi un messaggio">
+                    <div @click="sendMessage" class="ic d-flex align-center justify-center">
                         <i class="fa-solid fa-paper-plane"></i>
                     </div>
                 </div>
