@@ -28,8 +28,9 @@ createApp({
 
     data() {
         return {
-            messToSend: '', //appoggio per salvare il valore inserito in input
-            activeChat: 0, //appoggio per sapere a quale oggetto mi sto riferendo nello specifico
+            personToSearch: '', //appoggio per salvare il nome della persona da cercare
+            messToSend: '', //appoggio per salvare il messaggio da inviare in chat
+            activeChat: 0, //appoggio per sapere a quale oggetto di contacts mi sto riferendo nello specifico
             contacts: [
                 {
                     name: 'Michele',
@@ -219,6 +220,22 @@ createApp({
             }, 1000);
 
             this.messToSend = ''//pulisce alla fine il contenuto input
+        },
+        searchPerson(){ //metodo per cercare una persona nelle chat
+            if(this.personToSearch == ''){ //se il contenuto inserito é vuoto tutte le chat sono visibili
+                this.contacts.forEach(element => {
+                    element.visible = true    //per ogni ogetto in contacts prende  il suo attributo visible e lo imposta a true per renderlo appunto visibile 
+                });
+            } else { //se scrive qualcosa
+                this.contacts.forEach(element => {
+                    if(element.name.toLowerCase().includes(this.personToSearch.toLowerCase())){ //controlla se ogni elmento di contacts include il valore scritto in input
+                        element.visible = true //se lo contiene lo mostra
+                    } else {
+                        element.visible = false //altrimenti lo nasconde
+                    }
+                    
+                })
+            }
         }
     }
 

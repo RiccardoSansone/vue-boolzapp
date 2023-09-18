@@ -57,7 +57,7 @@
                 <!-- terza riga -->
                 <div class="search-row d-flex">
                     <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <input class="input-left" type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input v-on:keyup="searchPerson()" v-model="personToSearch" class="input-left" type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
                 <!-- /////////////////////////////////////////////////////// -->
 
@@ -66,7 +66,7 @@
                 <div class="users">
 
                     <!-- riga utente -->
-                    <div @click="changeChat(index)" v-for="(contact,index) in contacts" class="ut contact d-flex align-center gap-1 pos-relative">
+                    <div @click="changeChat(index)" v-for="(contact,index) in contacts" class="ut contact d-flex align-center gap-1 pos-relative" v-show="contacts[index].visible">
                         <!-- container img -->
                         <div class="img-circle d-flex align-center justify-center">
                             <img :src="contacts[index].avatar" alt="">
